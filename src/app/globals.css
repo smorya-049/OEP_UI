@@ -126,6 +126,11 @@
   font-weight: bolder;
   text-align: center;
 }
-.password{
+.pass{
+  border: 2px, solid,black;
+  border-radius: 8px;
+  text-align: center;
+  margin-left: 50%;
+  background-color: rgb(160, 158, 158);
   
 }
