@@ -27,7 +27,7 @@ const SignUpForm=() =>{
         <span className={styles.text_between}>OR</span>
         <hr className={styles.horizontal_line} />
        </div>
-       <p className={styles.p3}><FaPhoneAlt size={17} style={{ marginRight: '5px'}} />{/* Adjust size and style as needed */}
+       <p className={styles.p3}><FaPhoneAlt size={17} style={{ marginRight: '6px'}} />{/* Adjust size and style as needed */}
        <a className={styles.contactus}>Contact Us</a>  to generate key</p>
     </div>
     )
