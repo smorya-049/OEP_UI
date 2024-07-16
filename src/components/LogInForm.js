@@ -10,10 +10,10 @@ const LogInForm=() =>{
         <p className={styles.p2}>LOG IN NOW TO START.</p>
         <label htmlFor="username" >
         </label>
-        <input type="text" className={styles.input} placeholder="Username"/>
+        <input type="text" className={styles.input} placeholder="Username" required/>
         <label htmlFor="password">
         </label>
-        <input type="text" className={styles.input} placeholder="Password" />
+        <input type="text" className={styles.input} placeholder="Password" required />
         <button className={styles.buttonlogin}>Login</button>
        </form>
        <div className={styles.horizontal_line_container}>
