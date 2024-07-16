@@ -1,0 +1,90 @@
+.horizontal_line_container {
+   
+    margin-right: 20%;
+    display: flex;
+    align-items:center;
+    margin-bottom: 20px;
+}
+  
+.horizontal_line {
+    width: 50px;
+    flex: 1;
+    border: none;
+    border-top: 2px solid #fff; /* Adjust color and thickness as needed */
+}
+  
+.text_between {
+    margin: 0 10px; /* Adjust spacing as needed */
+    color: #fff;
+    font-weight: 500;
+}
+ 
+.SignUpPage{
+    color: #fff;
+    position: absolute;
+    left: 70%;
+    top: 15%;  
+}
+
+.p1{
+    font-size: 25px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.p2{
+    font-size: 25px;
+    color: #fff;
+    margin-left: 10px;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+.p3{
+    margin-left: 50px;
+}
+.button{
+    color: #fff;
+    background-color: grey;
+    padding: 8px;
+    padding-left: 14%;
+    padding-right: 14%;
+    border-radius: 1px;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-left: 22%;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+}
+
+.input ::placeholder{
+    text-align: center;
+    vertical-align: middle;
+    line-height: inherit;
+    height: inherit;
+}
+
+.input{
+    padding: 8px;
+    padding-left: 30%;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 30px;
+    margin-left: 10px;
+}
+
+
+.contactus{
+  color: #0070f3; 
+  text-decoration: none;
+  cursor: pointer;
+}
+.contactus:hover{
+    text-decoration: underline;
+}
+
+/*---------------responsive-------------------*/
+
+
