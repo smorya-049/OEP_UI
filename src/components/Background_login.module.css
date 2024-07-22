@@ -1,0 +1,46 @@
+.container {
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    display: flex;
+    z-index: -10;
+    align-items: center;
+    position: relative;
+  }
+
+  
+  .backgroundDiv {
+    width: 70%;
+    height: 100vh; 
+    background-position: center; /* Center the image */
+    position: relative;
+  }
+  
+  
+  /* black div */
+  .black:before{
+    flex-shrink: 1;
+    position:fixed;
+    content: '';
+    width: 550px;
+    height: 350px;
+    top:0px;
+    right: 0;
+    background-color: black;
+    transform: skewX(37deg);
+   
+  
+  }
+  .black:after{
+    flex-shrink: 1;
+    position:fixed;
+    content: '';
+    width: 700px;
+    height: 2500px;
+    top:0px;
+    right: 0;
+    background-color: black;
+    transform: skewY(110deg);
+    
+  
+  }
+  

@@ -19,7 +19,7 @@ export default function Home() {
   {/* main text */}
   <div className={styles.contentDiv}>
           <h1 className={styles.tagline}>SMART EVALUATION PORTAL</h1>
-          <button onClick={navigate("#")} className={styles.button}>Schedule a test</button>          
+          <button onClick={navigate("/login")} className={styles.button}>Schedule a test</button>          
   </div>
   {/* footer */}
 <footer className={styles.footer}>
