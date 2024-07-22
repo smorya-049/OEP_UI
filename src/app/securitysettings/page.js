@@ -4,26 +4,39 @@ import styles from "./securitysettings.module.css";
 import Script from "next/script";
 import React from "react";
 
-const Myfunction = ()=>
-    <Script id="show_password">
-      {function Myfunction() {
-         var x = document.getElementById("Input");
-          if (typeof(x) === "password") {
-            typeof(x) == "text";
-          } else {
-            typeof(x) == "password";
-           }}
-      }</Script>
 
 export default function securitysettings(){
+    function Myfunction() {
+        var x = document.getElementById("oldpassword");
+         if (x.type === "password") {
+           x.type = "text";
+         } else {
+           x.type = "password";
+          }} 
+    function Myfunction1() {
+        var x = document.getElementById("newpassword");
+         if (x.type === "password") {
+               x.type = "text";
+         } else {
+            x.type = "password";
+          }} 
+    function Myfunction2() {
+        var x = document.getElementById("confirmpassword");
+         if (x.type === "password") {
+               x.type = "text";
+         } else {
+               x.type = "password";
+        }} 
     
+
+
     return(
         <div className="mt-20">
-            <form><div className={styles.password}>Old Password : <input type="password" className={styles.pass}></input><button className={styles.button}><GrFormView/>
+            <form><div className={styles.password}>Old Password : <input id="oldpassword" type="password" className={styles.pass}></input><button onMouseOver={Myfunction}  className={styles.button} ><GrFormView/>
             </button></div></form>
-            <form > <div className={styles.password}>New Password: <input type="password" className={styles.pass}></input><button className={styles.button2}><GrFormView/>
+            <form > <div className={styles.password}>New Password: <input id="newpassword" type="password" className={styles.pass}></input><button onMouseOver={Myfunction1} className={styles.button2}><GrFormView/>
             </button></div></form>
-            <form ><div className={styles.password}>Confirm Password:<input id="Input" type="password" className={styles.pass1}></input><button onClick={Myfunction} className={styles.button3} >
+            <form ><div className={styles.password}>Confirm Password:<input id="confirmpassword" type="password" className={styles.pass1}></input><button onMouseOver={Myfunction2} className={styles.button3} >
                 <GrFormView/>
             </button></div></form>
             <form>
