@@ -1,21 +1,33 @@
 'use client'
 import { GrFormView } from "react-icons/gr";
-import { GrFormViewHide } from "react-icons/gr";
-import { useState } from "react";
+import styles from "./securitysettings.module.css";
+import Script from "next/script";
+import React from "react";
 
-export default function nav(){
-    const ShowPassword=()=>{
-        const [showPassword, setShowPassword]=useState(false);
-    }
+const Myfunction = ()=>
+    <Script id="show_password">
+      {function Myfunction() {
+         var x = document.getElementById("Input");
+          if (typeof(x) === "password") {
+            typeof(x) == "text";
+          } else {
+            typeof(x) == "password";
+           }}
+      }</Script>
+
+export default function securitysettings(){
+    
     return(
-        <div>
-            <div>Old Password: <form class="password"><input type="password" class="pass"></input></form></div>
-            <div>New Password: <form class="password"><input type="password" class="pass"></input><button className="absolute right-1 top-1/2 -translate-y-1/2 p-2 bg-slate-700 rounded-full mt-0">
-                    <GrFormView/>
-                </button></form></div>
-            <div>Confirm Password: <form class="password"><input type="password" class="pass"></input><button className="absolute right-1 top-1/2 -translate-y-1/2 p-2 bg-slate-700 rounded-full mt-0">
-                    <GrFormView/>
-                </button></form></div>
+        <div className="mt-20">
+            <form><div className={styles.password}>Old Password : <input type="password" className={styles.pass}></input><button className={styles.button}><GrFormView/>
+            </button></div></form>
+            <form > <div className={styles.password}>New Password: <input type="password" className={styles.pass}></input><button className={styles.button2}><GrFormView/>
+            </button></div></form>
+            <form ><div className={styles.password}>Confirm Password:<input id="Input" type="password" className={styles.pass1}></input><button onClick={Myfunction} className={styles.button3} >
+                <GrFormView/>
+            </button></div></form>
+            <form>
+            <input type="submit" value="CHANGE PASSWORD" className={styles.confirm}/><button></button></form>
         </div>
     )
 

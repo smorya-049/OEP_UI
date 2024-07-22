@@ -5,31 +5,32 @@ import { MdContentPasteSearch } from "react-icons/md";
 import { SiTestcafe } from "react-icons/si";
 import { MdLiveTv } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
+import styles from "./dashboard.module.css";
 
 export default function dashboard (){
     return(
         <div>
-            <div id="drafttestcontent"> <div><RiDraftFill class="logo"/></div>
+            <div id={styles.drafttestcontent}> <div><RiDraftFill className={styles.logo}/></div>
             Draft Test
-            <p class="number">0</p></div>
-            <div id="scheduletestcontent"> <div><GrSchedules class="logo"/></div>
+            <p className={styles.number}>0</p></div>
+            <div id={styles.scheduletestcontent}> <div><GrSchedules className={styles.logo}/></div>
             Scheduled Test
-            <p class="number">0</p></div><div id="clear"></div>
-            <div id="resultawaitedcontent"> <div><MdContentPasteSearch class="logo"/></div>
+            <p className={styles.number}>0</p></div><div id={styles.clear}></div>
+            <div id={styles.resultawaitedcontent}> <div><MdContentPasteSearch className={styles.logo}/></div>
             Result Awaited
-            <p class="number">0</p></div><div id="clear"></div>
-            <div id="testcompletedcontent"> <div><SiTestcafe class="logo"/></div>
+            <p className={styles.number}>0</p></div><div id={styles.clear}></div>
+            <div id={styles.testcompletedcontent}> <div><SiTestcafe className={styles.logo}/></div>
             Test Completed
-            <p class="number">0</p></div><div id="clear"></div>
-            <div id="livetestcontent"> <div><MdLiveTv class="logo"/></div>
+            <p className={styles.number}>0</p></div><div id={styles.clear}></div>
+            <div id={styles.livetestcontent}> <div><MdLiveTv className={styles.logo}/></div>
             Live Test
-            <p class="number">0</p></div><div id="clear"></div>
-            <div id="admininfocontent"> <div><FaUser class="logo"/></div>
+            <p className={styles.number}>0</p></div><div id={styles.clear}></div>
+            <div id={styles.admininfocontent}> <div><FaUser class={styles.logo}/></div>
             Admin Information
-            <div id="info"><br></br><br></br>
+            <div id={styles.info}><br></br><br></br>
                 <div> Name: </div><br></br>
             <div> Email: </div><br></br>
-            <div> Contact Number: </div></div></div><div id="clear"></div>
+            <div> Contact Number: </div></div></div><div id={styles.clear}></div>
 
         </div>
     )
