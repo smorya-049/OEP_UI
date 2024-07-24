@@ -36,10 +36,10 @@ export default function nav(){
         </form>
         <div className="my-4 border-b border-grey-100 pb-4">
     
-        <a href="./dashboard" target="_blank"><div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-grey-300 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto "><AiOutlineDashboard className="text-2xl text-gray-400 group-hover:text-white"/>
+        <a href="./dashboard" target="_self"><div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-grey-300 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto "><AiOutlineDashboard className="text-2xl text-gray-400 group-hover:text-white"/>
           <h3 className="text-base text-gray-400 group-hover:text-white font-semibold"> Dashboard </h3></div></a>
-          <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-grey-300 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto"><FiCheckCircle className="text-2xl text-gray-400 group-hover:text-white"/>
-          <h3 className="text-base text-gray-400 group-hover:text-white font-semibold"> Exam Creation </h3></div>
+        <a href="./examcreation" target="_self"><div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-grey-300 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto"><FiCheckCircle className="text-2xl text-gray-400 group-hover:text-white"/>
+          <h3 className="text-base text-gray-400 group-hover:text-white font-semibold">  Exam Creation  </h3></div></a>
           <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-grey-300 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto"><IoNewspaperOutline className="text-2xl text-gray-400 group-hover:text-white"/>
           <h3 className="text-base text-gray-400 group-hover:text-white font-semibold"> Test Management </h3>
           </div>
