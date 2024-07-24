@@ -8,10 +8,7 @@ import styles from './page.module.css';
 
 
 export default function Home() {
-    const route =useRouter();
-  const navigate =(name)=>{
-    route.push(name);
-  }
+
   return (
 <main>
   <Background className={styles.background} ></Background>
@@ -19,7 +16,9 @@ export default function Home() {
   {/* main text */}
   <div className={styles.contentDiv}>
           <h1 className={styles.tagline}>SMART EVALUATION PORTAL</h1>
-          <button onClick={navigate("/login")} className={styles.button}>Schedule a test</button>          
+          <a href="./login" target="">
+         <button className={styles.button}>Schedule a test</button> 
+         </a>          
   </div>
   {/* footer */}
 <footer className={styles.footer}>
