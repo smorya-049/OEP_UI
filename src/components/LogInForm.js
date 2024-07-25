@@ -14,6 +14,9 @@ const LogInForm=() =>{
         <label htmlFor="password">
         </label>
         <input type="text" className={styles.input} placeholder="Password" required />
+        <label htmlFor="Password">
+        </label>
+        <input type="text" className={styles.input} placeholder="Confirm Password" required />
         <button className={styles.buttonlogin}>Login</button>
        </form>
        <div className={styles.horizontal_line_container}>
