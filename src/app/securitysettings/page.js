@@ -27,9 +27,7 @@ export default function securitysettings(){
          } else {
                x.type = "password";
         }} 
-    
-
-
+        
     return(
         <div className="mt-20">
             <form><div className={styles.password}>Old Password : <input id="oldpassword" type="password" className={styles.pass}></input><button onMouseOver={Myfunction}  className={styles.button} ><GrFormView/>
