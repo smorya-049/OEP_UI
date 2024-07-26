@@ -1,0 +1,56 @@
+
+.navbar {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    color: white;
+    background-color: black; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+   
+    /* z-index: 1000; */
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .name {
+    padding-left: 550px;
+    display: flex;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .navmenu { 
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  
+  .menu_options {
+    position: absolute;
+    margin-right: 20px;
+    top: 50px; /* Adjust position as needed */
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu_options ul li{
+    background-color: #fff;
+    color: grey;
+    padding: 10px 10px;
+    cursor: pointer;
+  }
+
+  .menu_options ul li:hover{
+    background-color: rgb(243, 239, 239);
+  }
+
+ 
