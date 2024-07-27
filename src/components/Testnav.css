@@ -1,0 +1,63 @@
+.header {
+    background-color: lightgrey ;
+    /* Changed header background to light grey */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 5px;
+    /* Adjust the gap as needed */
+    /*flex-grow: 1;*/
+  }
+  
+  button {
+    padding: 15px 20px;
+    /* Increased size of the buttons */
+    font-size: 15px;
+    /* Increased font size of the buttons */
+    border-radius: 25px;
+    /* Makes the buttons cylindrical */
+    flex-grow: 1;
+    /* Makes the buttons stretch to fill the available space */
+    border: none;
+    cursor: pointer;
+    background-color: black;
+    /* Button background color set to black */
+    color: white;
+    /* Text color set to white for contrast */
+  }
+  
+  .icons {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 5px;
+    /* Space between the buttons and icons */
+  }
+  
+  .bell,
+  .dots {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    /* Adjust size of the icons */
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown a {
+    display: block;
+    margin: 5px 0;
+  }
