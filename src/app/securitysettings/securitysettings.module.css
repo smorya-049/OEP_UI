@@ -24,25 +24,25 @@
   background-color: rgb(98, 98, 99);
   border-radius: 50%;
   position: absolute;
-  right:376px;
+  right:286px;
   padding: 4px;
-  top: 23px;
+  top: 20.5px;
 }
 .button2{
   background-color: rgb(98, 98, 99);
   border-radius: 50%;
   position: absolute;
-  right:373px;
+  right:283px;
   padding: 4px;
-  top: 23.5px;
+  top: 20px;
 }
 .button3{
   background-color: rgb(98, 98, 99);
   border-radius: 50%;
   position: absolute;
-  right:373px;
+  right:280px;
   padding: 4px;
-  top:23px;
+  top:20.5px;
 }
 .confirm{
   background-color: rgb(121, 120, 120);

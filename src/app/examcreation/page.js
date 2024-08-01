@@ -20,9 +20,7 @@ export default function Home() {
         <button type="submit" value="RequestKey" className={styles.btn}> Request KEY </button>
         </form>
 
-        <footer className={styles.foot}>
-          <p>Copyright © |All rights reserved.</p>
-        </footer>
+        
         
     </main>
   );
