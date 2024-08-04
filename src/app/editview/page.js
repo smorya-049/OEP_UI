@@ -107,7 +107,7 @@ const QuestionList = ({ data, editIndex, editText, handleDelete, handleEdit, han
               type="text"
               value={item.question}
               readOnly
-              className="flex-grow ml-4 p-2 border border-black bg-gray-200 font-bold border rounded-[20px]"
+              className="flex-grow ml-4 p-2 border border-black bg-gray-200 font-bold border rounded-[20px] "
             />
           )}
           <DropdownButton 
