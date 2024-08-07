@@ -1,0 +1,66 @@
+.form{
+    margin: 30px 5px;
+    align-self: center;
+  }
+  
+  .label{
+    width: 350px;
+    display: inline-block;
+    font-size: medium;
+  }
+  .labelradio{
+    width: 120px;
+    display: inline-block;
+  }
+  .inputradio{
+    background:rgb(228, 221, 221); 
+    border: 2px solid black;
+    height: 25px;
+    width: 25px;
+    margin: 10px;
+  }
+  .input{
+      background-color:rgb(228, 221, 221);
+      border: 2px solid rgb(4, 4, 4);
+      border-radius: 8px;
+      margin: 10px;
+      padding: 12px;
+      height: 30px;
+      width: 250px;
+      align-self: right;
+    }
+  .select{
+    background-color:rgb(228, 221, 221);
+    border: 2px solid rgb(4, 4, 4);
+    border-radius: 8px;
+    margin: 10px;
+    padding: 2px;
+    height: 30px;
+    width: 250px;
+    align-self: right;
+    color: black;
+  }
+
+    .input:focus,.select:focus {
+      background-color: rgb(159, 215, 243);
+      border: 2px solid #171616;
+      color: black;
+    }
+    .button{
+      font-size: medium;
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      width: 200px;
+      background-color:rgb(159, 215, 243);
+      color: black;
+      padding: 4px 20px;
+      margin-left: 220px;
+      margin-top: 30px;
+      border: 2px solid black;
+      border-radius: 10px;
+    }
+  
+  .div{
+    border: 2px solid rgb(9, 9, 59);
+    padding: 10px 25px;
+    width: 75%;
+  }
