@@ -1,7 +1,7 @@
 // pages/index.js
 "use client";
-import Header from './components/Testnav.js';
-import QuestionForm from './components/Questionform.js';
+import Header from '@/components/Testnav.js';
+import QuestionForm from './Questionform.js';
 
 const Home = () => {
     return (
