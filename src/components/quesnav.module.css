@@ -2,6 +2,7 @@
     width: 17%;
     height: 631px;
     background-color: rgb(197, 196, 192);
+    position: absolute;
 }
 .container{
     background-color: black;

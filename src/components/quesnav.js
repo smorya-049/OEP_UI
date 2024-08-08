@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./quesnav.module.css";
 import { FaUser } from "react-icons/fa";
 
-export default function quesnav(){
+export default function QuesNav(){
     return(
         <div>
         <div className={styles.sidebar}>
