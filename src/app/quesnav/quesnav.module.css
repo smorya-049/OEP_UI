@@ -1,0 +1,45 @@
+.sidebar{
+    width: 17%;
+    height: 631px;
+    background-color: rgb(197, 196, 192);
+}
+.container{
+    background-color: black;
+    margin-top: 35%;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.done{
+    color: aliceblue;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+    margin-right: 8px;
+    margin-top: 10px;
+    margin-left: 6px;
+    background-color: rgb(108, 170, 108);
+}
+.draft{
+    color: aliceblue;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 15px ;
+    margin-top: 10px;
+    margin-right: 8px;
+    margin-left: 6px;
+    background-color: rgb(227, 171, 75);
+}
+.undone{
+    color: aliceblue;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    margin-right: 8px;
+    margin-left: 6px;
+    margin-top: 10px;
+    background-color: rgb(198, 5, 5);
+    margin-bottom: 15px;
+}
