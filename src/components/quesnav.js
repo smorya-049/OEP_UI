@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./quesnav.module.css";
+import styles from "./QuesNav.module.css";
 import { FaUser } from "react-icons/fa";
 
 export default function QuesNav(){
