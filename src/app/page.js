@@ -1,47 +1,34 @@
-// pages/index.js
-import React from "react";
+'use client'
+import React, { useEffect, useState } from "react";
 import Link from 'next/link';
 import Background from "@/components/Background";
 import Image from "next/image";
 import styles from './page.module.css';
 import navStyles from '@/components/Navbar.module.css';
-import { cookies } from 'next/headers'; // Import for managing cookies securely
 
-// fetching data from API with token
-export default async function Home() {
-  let heading = '';
-  let tagline = '';
-  let error = null;
+export default  function Home() {
 
-  try {
-    // Fetch data from the home API
-    const res = await fetch("http://68.183.90.216:8083/home");
-    if (!res.ok) {
-      throw new Error(`Failed to fetch data, status code: ${res.status}`);
-    }
-    const data = await res.json();
-    heading = data?.data?.heading || "";
-    tagline = data?.data?.tagline || "";
+  const [data, setData]=useState();
+  const [loading,setLoading]=useState(true);
 
-    // Retrieve token and store it in a cookie
-    const token = data?.token || "";
-    if (token) {
-      cookies().set('authToken', token, { httpOnly: true, secure: true });
-    } else {
-      throw new Error('No token provided in API response.');
-    }
+  useEffect(()=>{
+    fetch('http://68.183.90.216:8083/home')
+      .then(response => response.json())
+      .then(data =>{
+        setData(data);
+        setLoading(false);
+        console.log(data);
+      });
+  },[])
 
-  } catch (err) {
-    error = err.message || 'An error occurred while fetching the API.';
-  }
-
+  if(loading)return <h1 className={styles.loading}>loading</h1>
   return (
     <main>
       <Background className={styles.background} />
       <nav className={navStyles.navbar}>
         <div className={navStyles.logo}>
           <Image src="/logo.jpg" alt="Logo" width={50} height={50} />
-          <span className={navStyles.name}>{heading}</span>
+          <span className={navStyles.name}>{data?.data?.heading || ""}</span>
         </div>
         <div className={navStyles.navLinks}>
           <Link href="#" className={navStyles.link}>
@@ -50,8 +37,8 @@ export default async function Home() {
         </div>
       </nav>
       <div className={styles.contentDiv}>
-        <h1 className={styles.tagline}>{tagline}</h1>
-        <Link href="/signup">
+        <h1 className={styles.tagline}>{data?.data?.tagline || ""}</h1>
+        <Link href="/login">
           <button className={styles.button}>Schedule a test</button>
         </Link>
       </div>
@@ -62,161 +49,56 @@ export default async function Home() {
   );
 }
 
-// // 'use client'
-// import React from "react";
-// import Link from 'next/link';
-// import Background from "@/components/Background";
-// // import { useRouter } from "next/navigation";
-// // import Navbar from "@/components/Navbar";
-// import Image from "next/image";
-// import styles from './page.module.css';
-// import navStyles from '@/components/Navbar.module.css';
-// import { fetchExternalImage } from "next/dist/server/image-optimizer";
 
-// // fetching data from api using async function
-// export default async function Home(){
-//   let heading ='';
-//   let tagline= '';
-//   let error =null;
-//   try{
-//     //fetch data from api
-//     const res = await fetch("http://68.183.90.216:8083/home");
-//     if (!res.ok){
-//       throw new Error(`failed to fetch data,status code: ${re.status}`);  
-//     }
-//     const data = await res.json();
-//     heading = data?.data?.heading || "";
-//     tagline = data?.data?.tagline || "";
-//     // Handle case where these fields are missing
-//     if (!heading || !tagline) {
-//       throw new Error('API response does not contain valid heading or tagline.');
-//     }
-//   }
-//   catch (err) {
-//     // Catch any errors and set error message
-//     error = err.message || 'An error occurred while fetching the API.';
-//   }
-//   return (
-//     <main>
-//       <Background className={styles.background} ></Background>
-//       <nav className={navStyles.navbar}>
-//       <div className={navStyles.logo}>
-//         <Image src="/logo.jpg" alt="Logo" width={50} height={50} />
-//         <span className={navStyles.name}>{heading}</span>
-//       </div>
-//       <div className={navStyles.navLinks}>
-//         <Link href="#" className={navStyles.link}>
-//           About Us
-//         </Link>
-//       </div>
-//     </nav>
-//       {/* main text */}
-//       <div className={styles.contentDiv}>
-//               <h1 className={styles.tagline}>{tagline} </h1>
-//               <a href="./login" target="">
-//              <button className={styles.button}>Schedule a test</button> 
-//              </a>          
-//       </div>
-//       {/* footer */}
-//     <footer className={styles.footer}>
-//       <p>
-//       Made by ~ Mr Kulanshu Sharma and Team </p>
-//       </footer>
-//     </main> 
-//       );
-// };
-// // const Navbar = () => {
-// //   return (
-// //     <nav className={navStyles.navbar}>
-// //       <div className={navStyles.logo}>
-// //         <Image src="/logo.jpg" alt="Logo" width={50} height={50} />
-// //         <span className={navStyles.name}>My Website</span>
-// //       </div>
-// //       <div className={navStyles.navLinks}>
-// //         <Link href="#" className={navStyles.link}>
-// //           About Us
-// //         </Link>
-// //       </div>
-// //     </nav>
-// //   );
-// // };
-
-
-
-
-
-
-
-
-// import React from "react";
-// import Link from "next/link";
-// import Background from "@/components/Background";
-// import Image from "next/image";
-// import styles from "./page.module.css";
-// import navStyles from "@/components/Navbar.module.css";
-// import { parseCookies } from "nookies"; // Use nookies for cookie parsing
-
-// export default function Home({ heading, tagline, error }) {
-//   return (
-//     <main>
-//       <Background className={styles.background}></Background>
-//       <nav className={navStyles.navbar}>
-//         <div className={navStyles.logo}>
-//           <Image src="/logo.jpg" alt="Logo" width={50} height={50} />
-//           <span className={navStyles.name}>{heading}</span>
-//         </div>
-//         <div className={navStyles.navLinks}>
-//           <Link href="#" className={navStyles.link}>
-//             About Us
-//           </Link>
-//         </div>
-//       </nav>
-//       <div className={styles.contentDiv}>
-//         <h1 className={styles.tagline}>{tagline}</h1>
-//         <a href="./login" target="">
-//           <button className={styles.button}>Schedule a test</button>
-//         </a>
-//       </div>
-//       <footer className={styles.footer}>
-//         <p>Made by ~ Mr Kulanshu Sharma and Team</p>
-//       </footer>
-//     </main>
-//   );
-// }
-
-// export async function getServerSideProps(context) {
-//   const { authToken } = parseCookies(context); // Retrieve token from cookies
-//   let heading = "";
-//   let tagline = "";
-//   let error = null;
-
-//   try {
-//     const res = await fetch("http://68.183.90.216:8083/home", {
-//       headers: {
-//         Authorization: `Bearer ${authToken}`, // Include token in header
-//       },
-//     });
-
-//     if (!res.ok) {
-//       throw new Error(`Failed to fetch data, status code: ${res.status}`);
-//     }
-
-//     const data = await res.json();
-//     heading = data?.data?.heading || "";
-//     tagline = data?.data?.tagline || "";
-
-//     if (!heading || !tagline) {
-//       throw new Error("API response does not contain valid heading or tagline.");
-//     }
-//   } catch (err) {
-//     error = err.message || "An error occurred while fetching the API.";
-//   }
-
-//   return {
-//     props: {
-//       heading,
-//       tagline,
-//       error,
-//     },
-//   };
-// }
+//
+  //   let heading = '';
+  //   let tagline = '';
+  //   let error = null;
+  //   useEffect(() => {
+  //     const { fetch: originalFetch } = window;
+  //     window.fetch = async (...args) => {
+        
+  //       console.log(args);
+  //       let [resource, config] = args;
+  //       if(localStorage.getItem("authToken");
+  //       const response = await originalFetch(resource, config);
+  //       localStorage.setItem(config.headers["authTokenFromBE"]);
+  //       return response;
+  //     };
+      
+  //   },[])
+  // useEffect(() => {
+  //     const { fetch: originalFetch } = window;
+  //     window.fetch = async (...args) => {
+  //       let [resource, config] = args;
+  //       if(localStorage.getItem("authToken")){
+  //         localStorage.getItem("authToken");
+  //       }
+  //       const response = await originalFetch(resource, config);
+  //       localStorage.setItem(config.headers["authTokenFromBE"]);
+  //       return response;
+  //     };
+      
+  //   },[])
+  
+    // try {
+    //   // Fetch data from the home API
+    //   const res = await fetch("http://68.183.90.216:8083/home");
+    //   if (!res.ok) {
+    //     throw new Error(`Failed to fetch data, status code: ${res.status}`);
+    //   }
+    //   const data = await res.json();
+    //   heading = data?.data?.heading || "";
+    //   tagline = data?.data?.tagline || "";
+  
+    //   // Retrieve token and store it in a cookie
+    //   const token = data?.token || "";
+    //   if (token) {
+    //     cookies().set('authToken', token, { httpOnly: true, secure: true });
+    //   } else {
+    //     throw new Error('No token provided in API response.');
+    //   }
+  
+    // } catch (err) {
+    //   error = err.message || 'An error occurred while fetching the API.';
+    // }
