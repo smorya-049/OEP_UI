@@ -1,4 +1,5 @@
 'use client'
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Link from 'next/link';
 import Background from "@/components/Background";
@@ -8,22 +9,35 @@ import navStyles from '@/components/Navbar.module.css';
 
 export default  function Home() {
 
+
   const [data, setData]=useState();
   const [loading,setLoading]=useState(true);
-
   useEffect(()=>{
-    fetch('http://68.183.90.216:8083/home')
-      .then(response => response.json())
-      .then(data =>{
-        setData(data);
-        setLoading(false);
-        console.log(data);
-      });
+    const fetchData =async() =>{
+     const data = await axios.get("http://68.183.90.216:8083/home")
+     .then((res)=>{
+      setData(res.data);
+      setLoading(false);
+      console.log(res.data);
+     })      
+    }
+    fetchData();
   },[])
+
+  // useEffect(()=>{
+  //   fetch('http://68.183.90.216:8083/home')
+  //     .then(response => response.json())
+  //     .then(data =>{
+  //       setData(data);
+  //       setLoading(false);
+  //       console.log(data);
+  //     });
+  // },[])
 
   if(loading)return <h1 className={styles.loading}>loading</h1>
   return (
     <main>
+      
       <Background className={styles.background} />
       <nav className={navStyles.navbar}>
         <div className={navStyles.logo}>
