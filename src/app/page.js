@@ -1,28 +1,68 @@
 'use client'
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Link from 'next/link';
 import Background from "@/components/Background";
 import Image from "next/image";
 import styles from './page.module.css';
 import navStyles from '@/components/Navbar.module.css';
+import myInterceptor from "@/lib/interceptor";
 
 export default  function Home() {
 
-
   const [data, setData]=useState();
   const [loading,setLoading]=useState(true);
+  // const [token, setToken] = useState(null);
+
+
   useEffect(()=>{
     const fetchData =async() =>{
-     const data = await axios.get("http://68.183.90.216:8083/home")
-     .then((res)=>{
-      setData(res.data);
+     const data = await myInterceptor.get("/home")
+     .then((response)=>{
+      setData(response.data);
       setLoading(false);
-      console.log(res.data);
+      // setToken(response.data.token);
+      // tokenInterceptor(response.data.token);
+      console.log(response);
      })      
     }
     fetchData();
   },[])
+
+  if(loading)return <h1 className={styles.loading}>loading</h1>
+  return (
+    <main>
+      
+      <Background className={styles.background} />
+      <nav className={navStyles.navbar}>
+        <div className={navStyles.logo}>
+          <Image src="/logo.jpg" alt="Logo" width={50} height={50} />
+          <span className={navStyles.name}>{data?.heading || ""}</span>
+        </div>
+        <div className={navStyles.navLinks}>
+          <Link href="#" className={navStyles.link}>
+            About Us
+          </Link>
+        </div>
+      </nav>
+      <div className={styles.contentDiv}>
+        <h1 className={styles.tagline}>{data?.tagline || ""}</h1>
+        <Link href="/login">
+          <button className={styles.button}>Schedule a test</button>
+        </Link>
+        
+      </div>
+      <footer className={styles.footer}>
+        <p>Made by ~ Mr Kulanshu Sharma and Team</p>
+      </footer>
+    </main>
+  );
+}
+// const handlepost=()=>{
+//   const user={name:"SEP"}
+//   myInterceptor.post("/secure/adminRegister",user).then(response =>{
+//     console.log(response);
+//   })
+// }
 
   // useEffect(()=>{
   //   fetch('http://68.183.90.216:8083/home')
@@ -33,37 +73,6 @@ export default  function Home() {
   //       console.log(data);
   //     });
   // },[])
-
-  if(loading)return <h1 className={styles.loading}>loading</h1>
-  return (
-    <main>
-      
-      <Background className={styles.background} />
-      <nav className={navStyles.navbar}>
-        <div className={navStyles.logo}>
-          <Image src="/logo.jpg" alt="Logo" width={50} height={50} />
-          <span className={navStyles.name}>{data?.data?.heading || ""}</span>
-        </div>
-        <div className={navStyles.navLinks}>
-          <Link href="#" className={navStyles.link}>
-            About Us
-          </Link>
-        </div>
-      </nav>
-      <div className={styles.contentDiv}>
-        <h1 className={styles.tagline}>{data?.data?.tagline || ""}</h1>
-        <Link href="/login">
-          <button className={styles.button}>Schedule a test</button>
-        </Link>
-      </div>
-      <footer className={styles.footer}>
-        <p>Made by ~ Mr Kulanshu Sharma and Team</p>
-      </footer>
-    </main>
-  );
-}
-
-
 //
   //   let heading = '';
   //   let tagline = '';
