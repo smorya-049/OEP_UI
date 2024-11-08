@@ -18,7 +18,7 @@ export default function Home() {
         <p class={styles.text}>6.Do not click End Exam button before completing the exam. In case you click End Exam Button you will not be permitted to re enter the exam.</p>
         <form>
         <p class={styles.check}><input type="checkbox" id={styles.check} required/> I have read and understood all the instructions given above.</p>
-        <button type="submit" value="Start_Exam" className={styles.btn}>Start Exam</button>
+        <button type="submit" value="Start_Exam" className={styles.btn}> Start </button>
         </form>
     </main>
   );

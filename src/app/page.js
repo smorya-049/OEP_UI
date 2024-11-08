@@ -11,20 +11,23 @@ export default  function Home() {
 
   const [data, setData]=useState();
   const [loading,setLoading]=useState(true);
-  // const [token, setToken] = useState(null);
+  const [token, setToken] = useState(null);
 
 
   useEffect(()=>{
     const fetchData =async() =>{
-     const data = await myInterceptor.get("/home")
-     .then((response)=>{
-      setData(response.data);
-      setLoading(false);
-      // setToken(response.data.token);
-      // tokenInterceptor(response.data.token);
-      console.log(response);
-     })      
-    }
+      try {
+        const response = await myInterceptor.get("/home");
+        setData(response.data);
+        setLoading(false);
+        setToken(response.data.token);  // Store the token
+        console.log("Token:", response.data.token);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      }
+    };
+    
     fetchData();
   },[])
 
