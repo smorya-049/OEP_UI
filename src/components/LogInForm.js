@@ -1,40 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./LogInForm.module.css";
 import Link from "next/link";
+import myInterceptor from "@/lib/interceptor";
 
 const LogInForm = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [submit, setSubmit] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setError(null);
+    // useEffect for handling form submission and API call
+    useEffect(() => {
+        if (!submit) return;
 
-        try {
-            const response = await fetch("http://68.183.90.216:8083/secure/adminLogin", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    emailID: username,
-                    password: password,
-                }),
-            });
+        const loginUser = async () => {
+            setLoading(true);
+            setError(null);
 
-            const data = await response.json();
+            try {
+                const response = await myInterceptor.post("/secure/adminLogin", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        emailID: username,
+                        password: password,
+                    }),
+                });
 
-            if (response.ok && !data.errFlag) {
-                console.log("Login successful:", data);
-                // You can save the session data, redirect, or perform other actions
-            } else {
-                setError(data.message || "Login failed. Please try again.");
+                const data = await response.json();
+
+                if (response.ok && !data.errFlag) {
+                    console.log("Login successful:", data);
+                    // Handle successful login, e.g., saving session data
+                } else {
+                    setError(data.message || "Login failed. Please try again.");
+                }
+            } catch (err) {
+                console.error("Error logging in:", err);
+                setError("An error occurred. Please try again later.");
+            } finally {
+                setLoading(false);
+                setSubmit(false);
             }
-        } catch (err) {
-            console.error("Error logging in:", err);
-            setError("An error occurred. Please try again later.");
-        }
+        };
+
+        loginUser();
+    }, [submit, username, password]);
+
+    // useEffect for clearing error message after 5 seconds
+    useEffect(() => {
+        if (!error) return;
+
+        const timer = setTimeout(() => setError(null), 5000);
+        return () => clearTimeout(timer);
+    }, [error]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setSubmit(true); // Trigger the submit state, which will activate the login effect
     };
 
     return (
@@ -60,7 +86,9 @@ const LogInForm = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button className={styles.buttonlogin} type="submit">Login</button>
+                <button className={styles.buttonlogin} type="submit" disabled={loading}>
+                    {loading ? "Logging in..." : "Login"}
+                </button>
                 {error && <p className={styles.error}>{error}</p>}
             </form>
             <div className={styles.horizontal_line_container}>
