@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./SignUpForm.module.css";
 import { FaPhoneAlt } from 'react-icons/fa';
+import myInterceptor from "@/lib/interceptor";
 
 const SignUpForm = () => {
     const [formData, setFormData] = useState({
@@ -12,6 +13,14 @@ const SignUpForm = () => {
     });
     const [responseMessage, setResponseMessage] = useState("");
 
+    // Auto-clear responseMessage after 5 seconds if set
+    useEffect(() => {
+        if (responseMessage) {
+            const timer = setTimeout(() => setResponseMessage(""), 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [responseMessage]);
+
     // Handle input change
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -22,7 +31,7 @@ const SignUpForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://68.183.90.216:8083/secure/adminRegister", {
+            const response = await myInterceptor.post("/secure/adminRegister", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
