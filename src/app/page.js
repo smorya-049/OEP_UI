@@ -16,17 +16,27 @@ export default  function Home() {
 
   useEffect(()=>{
     const fetchData =async() =>{
-      try {
-        const response = await myInterceptor.get("/home");
-        setData(response.data);
-        setLoading(false);
-        setToken(response.data.token);  // Store the token
-        console.log("Token:", response.data.token);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false);
+    try {
+      const response = await myInterceptor.get("/home");
+      setData(response.data);
+      setLoading(false);
+
+      // Extract token from headers
+      const token = response.headers?.authorization || response.headers?.Authorization;
+      if (token) {
+        localStorage.setItem('authToken', token);
+        setToken(token);
+        console.log("Token from headers:", token);
+      } else {
+        console.warn("Token not found in headers");
       }
-    };
+
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false);
+    }
+  };
+
     
     fetchData();
   },[])

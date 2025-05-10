@@ -19,18 +19,12 @@ const LogInForm = () => {
             setError(null);
 
             try {
-                const response = await myInterceptor.post("/secure/adminLogin", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        emailID: username,
-                        password: password,
-                    }),
-                });
+        const response = await myInterceptor.post("/secure/adminLogin", {
+            emailID: username,
+            password: password,
+        });
 
-                const data = await response.json();
+        const data = response.data; 
 
                 if (response.ok && !data.errFlag) {
                     console.log("Login successful:", data);

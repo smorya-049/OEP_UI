@@ -31,15 +31,8 @@ const SignUpForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await myInterceptor.post("/secure/adminRegister", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
-
-            const data = await response.json();
+            const response = await myInterceptor.post("/secure/adminRegister", formData);
+            const data = response.data;
             if (data.errFlag) {
                 setResponseMessage(data.errMsg || "An error occurred. Please try again.");
             } else {

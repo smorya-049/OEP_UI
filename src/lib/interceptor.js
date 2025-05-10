@@ -1,11 +1,12 @@
 import axios from "axios";
 const myInterceptor =axios.create({
-    baseURL: "http://68.183.90.216:8083",
+    baseURL: "http://localhost:8080",
 });
  // Request Interceptor
 myInterceptor.interceptors.request.use((config)=>{
     console.log('request ');
 config.headers['Content-Type'] = 'application/json';
+
 if(!config.skipAuth){
     config.headers['Authorization'] = localStorage.getItem('authToken');
  }
@@ -22,7 +23,7 @@ if(!config.skipAuth){
     if(response?.headers?.Authorization){
         localStorage.setItem('authToken',response?.headers?.Authorization);
      }
-     return response.data;
+     return response;
     },(error) => {
         //Handle request error
         return Promise.reject(error);
